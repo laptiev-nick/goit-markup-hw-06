@@ -87,8 +87,6 @@ img {
   color: var(--primary-brand);
 
   /* margin-right: 76px; */
-  padding-top: 17px;
-  padding-bottom: 17px;
 }
 
 .logo .studio {
@@ -154,7 +152,7 @@ img {
 }
 
 .menu-close-btn {
-  display: block;
+  display: flex;
   margin-left: auto;
   margin-bottom: 24px;
 
@@ -196,7 +194,7 @@ img {
 }
 
 .nav-mob-menu {
-  margin-bottom: 32px;
+  padding-bottom: 32px;
 }
 
 .mob-menu-list {
@@ -225,11 +223,18 @@ img {
   color: var(--pressed-state);
 }
 
+.mob-menu-main {
+  color: var(--pressed-state);
+}
+
+.mob-menu-address {
+  margin-bottom: 32px;
+}
+
 .mob-menu-contacts {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-bottom: 32px;
 }
 
 .contacts-item {
@@ -247,6 +252,10 @@ img {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.contacts-link-phone {
+  color: var(--primary-brand);
+}
+
 .contacts-link:hover,
 .contacts-link:focus {
   color: var(--primary-brand);
@@ -255,8 +264,10 @@ img {
 .social-media {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 72px;
 }
 
 .mob-soc-list {
@@ -604,6 +615,8 @@ main {
 .portfolio-card {
   width: 100%;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 .portfolio-card:hover {
@@ -679,9 +692,7 @@ main {
 }
 
 .webstudio {
-  width: 288px;
   text-align: left;
-  margin-right: 120px;
 
   margin-bottom: 72px;
 }
@@ -702,13 +713,6 @@ main {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--light);
-}
-
-.social-media {
-  display: flex;
-  flex-direction: column;
-  margin-right: auto;
-  margin-bottom: 72px;
 }
 
 .social-media-paragraph,
@@ -754,7 +758,7 @@ main {
 .subscribe-input {
   border: 1px solid var(--white-background);
   border-radius: 4px;
-  width: 264px;
+  width: 288px;
   height: 40px;
   padding-left: 16px;
 
@@ -1026,6 +1030,8 @@ button {
 }
 
 .form-agreement {
+  display: flex;
+  align-items: center;
   color: var(--subtle-text);
   font-weight: 400;
   font-size: 12px;
@@ -1046,6 +1052,7 @@ button {
   border-radius: 2px;
 
   cursor: pointer;
+  flex-shrink: 0;
 
   margin-right: 8px;
   vertical-align: sub;
@@ -1110,10 +1117,56 @@ button {
 }
 
 /* ----------TABLET-MEDIA---------- */
+@media screen and (max-width: 1158px) {
+  .hero {
+    max-width: 768px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    max-width: 320px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1158px) {
+  .footer .container {
+    gap: 72px;
+  }
+  .social-media {
+    width: auto;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+
+  .social-media-paragraph {
+    align-self: flex-start;
+  }
+
+  .footer .container .logo {
+    justify-content: flex-start;
+  }
+}
 
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
+  }
+
+  .social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* margin-right: auto;
+  margin-bottom: 72px; */
+  }
+
+  .subscribe-input {
+    width: 264px;
+  }
+
+  .portfolio-card {
+    box-shadow: none;
   }
 
   .navigation {
@@ -1259,23 +1312,21 @@ button {
   }
 
   .footer {
-    padding-left: 108px;
-    padding-right: 164px;
   }
 
   .footer .container {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 108px;
   }
 
   .logo-and-social {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     gap: 24px;
   }
 
   .webstudio {
-    min-width: 264px;
+    max-width: 264px;
 
     margin-right: 0;
     margin-bottom: 0;
@@ -1326,6 +1377,10 @@ button {
     letter-spacing: 0.02em;
   }
 
+  .social-media-paragraph {
+    align-self: flex-start;
+  }
+
   .hero {
     padding: 188px 0;
     background-image: linear-gradient(
@@ -1334,6 +1389,10 @@ button {
         rgba(46, 47, 66, 0.7)
       ),
       url(../images/desktop/hero-bg-desk.jpg);
+  }
+
+  .footer .container .logo {
+    justify-content: flex-start;
   }
 
   @media screen and (-webkit-min-device-pixel-ratio: 2),
@@ -1398,13 +1457,15 @@ button {
   }
 
   .footer {
-    padding: 100px 156px;
+    /* padding: 100px 156px; */
   }
 
   .footer .container {
     flex-direction: row;
     align-items: baseline;
-    gap: 80px;
+    gap: 0;
+    padding-left: 15px;
+    justify-content: space-between;
   }
 
   .logo-and-social {
